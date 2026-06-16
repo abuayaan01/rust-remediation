@@ -4,6 +4,7 @@ import FilterableProductTable from "./components/FilterableProductTable";
 import ShoppingCart from "./components/ShoppingCart";
 import TodoList from "./components/TodoList";
 import Users from "./components/Users";
+import RefHelper from "./components/RefHelper";
 import { PRODUCTS } from "./dummy";
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
       {/* <Counter /> */}
       {/* <TodoList /> */}
       {/* <ShoppingCart /> */}
-      <Users />
+      {/* <Users /> */}
+      <RefHelper />
     </>
   );
 }
