@@ -6,6 +6,7 @@ import TodoList from "./components/TodoList";
 import Users from "./components/Users";
 import RefHelper from "./components/RefHelper";
 import { PRODUCTS } from "./dummy";
+import UsersList from "./components/users/index";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       {/* <TodoList /> */}
       {/* <ShoppingCart /> */}
       {/* <Users /> */}
-      <RefHelper />
+      {/* <RefHelper /> */}
+      <UsersList />
     </>
   );
 }
