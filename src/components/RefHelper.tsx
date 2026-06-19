@@ -1,26 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { useContext } from "react";
+import { SimpleUserContext } from "@/context/SimpleUserContext";
 
 
 function RefHelper() {
+
+  const userContext = useContext(SimpleUserContext);
+  console.log(userContext)
+
   const [count, setCount] = useState<number>(0);
   const ref = useRef<number | null>(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const timer = useRef<number | null>(null);
 
-  useEffect(() => {
-    timer.current = setInterval(() => {
-      console.log("first");
-    }, 1000);
+  // useEffect(() => {
+  //   timer.current = setInterval(() => {
+  //     console.log("first");
+  //   }, 1000);
 
-    return () => {
-      if (timer.current) {
-        clearInterval(timer.current);
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (timer.current) {
+  //       clearInterval(timer.current);
+  //     }
+  //   };
+  // }, []);
 
   function increase(): void {
     setCount((p) => p + 1);
