@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useMemo, useState } from "react";
 import SearchBar from "./SearchBar";
 import type { Product } from "../types";
 
@@ -14,9 +14,9 @@ function FilterableProductTable({ products }: FilterableProductTableProps) {
     setinStock(!inStock);
   }
 
-  const inStockedProducts: Product[] = products.filter(
-    (p) => p.stocked == true
-  );
+  const inStockedProducts: Product[] = useMemo(() => {
+    return products.filter((p) => p.stocked == true);
+  }, [products]);
 
   return (
     <div>
@@ -39,35 +39,37 @@ interface ProductTableProps {
   searchParam: String;
 }
 
-function ProductTable({ products, searchParam }: ProductTableProps) {
-  const rows: React.ReactNode[] = [];
-  let lastCategory: string | null = null;
+const ProductTable = React.memo(
+  ({ products, searchParam }: ProductTableProps) => {
+    const rows: React.ReactNode[] = [];
+    let lastCategory: string | null = null;
 
-  products.forEach((prod) => {
-    if (prod.name.toLowerCase().indexOf(searchParam.toLowerCase()) === -1) {
-      return;
-    }
-    if (prod.category != lastCategory) {
-      rows.push(
-        <ProductCategoryRow category={prod.category} key={prod.category} />
-      );
-    }
-    rows.push(<ProductRow product={prod} />);
-    lastCategory = prod.category;
-  });
+    products.forEach((prod) => {
+      if (prod.name.toLowerCase().indexOf(searchParam.toLowerCase()) === -1) {
+        return;
+      }
+      if (prod.category != lastCategory) {
+        rows.push(
+          <ProductCategoryRow category={prod.category} key={prod.category} />
+        );
+      }
+      rows.push(<ProductRow product={prod} />);
+      lastCategory = prod.category;
+    });
 
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>{rows.length ? rows : "No items found"}</tbody>
-    </table>
-  );
-}
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>{rows.length ? rows : "No items found"}</tbody>
+      </table>
+    );
+  }
+);
 
 function ProductRow({ product }: { product: Product }) {
   return (

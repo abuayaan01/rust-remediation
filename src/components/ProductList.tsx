@@ -1,9 +1,7 @@
 import { useCartContext } from "@/context/CartContext";
-import useCartState from "@/hooks/useCartState";
 
 function ProductList() {
   const { dispatch } = useCartContext();
-
   return (
     <>
       <div className="w-20 h-20 mb-10 bg-amber-300">

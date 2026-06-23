@@ -1,7 +1,9 @@
 import Container from "./components/Container";
 import { MiniNavbar } from "./components/MiniNavbar";
 import ProductList from "./components/ProductList";
+import RenderContainer from "./components/RenderContainer";
 import ThemeSwitcher from "./components/ThemeSwitcher";
+import Trap from "./components/Trap";
 import { CartContextProvider } from "./context/CartContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -13,6 +15,8 @@ function MiniApp() {
           <ThemeSwitcher />
           <MiniNavbar />
           <ProductList />
+          <RenderContainer />
+          <Trap />
         </Container>
       </CartContextProvider>
     </ThemeProvider>
