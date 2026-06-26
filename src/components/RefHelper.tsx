@@ -69,7 +69,7 @@ export default RefHelper;
 
 // 1. Any state(useState) change would cause the component to re render while (useRef) doesn't causes re render
 
-//2. State change -> re-render -> UI paints -> Effect(useEffect) Runs, here values of ref and state are techniacally same but it is happeing at the end after the ui has been painted, and any change to ref will not cause the re-render so it is not visible in UI so we can use it to hold prev state value;
+//2. State change -> re-render -> UI paints -> Effect(useEffect) Runs, here values of ref and state are techniacally same but it is happening at the end after the ui has been painted, and any change to ref will not cause the re-render so it is not visible in UI so we can use it to hold prev state value;
 
 //3. It can be used to access DOM Elements
 

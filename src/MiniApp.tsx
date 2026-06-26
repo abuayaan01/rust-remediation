@@ -1,5 +1,6 @@
 import Container from "./components/Container";
 import { MiniNavbar } from "./components/MiniNavbar";
+import CatFriends from "./components/MultiRef";
 import TravelPlan from "./components/NestedFlattening";
 import ProductList from "./components/ProductList";
 import RenderContainer from "./components/RenderContainer";
@@ -16,8 +17,9 @@ function MiniApp() {
           <ThemeSwitcher />
           <MiniNavbar />
           <ProductList />
-          <RenderContainer />
-          <TravelPlan />
+          {/* <RenderContainer /> */}
+          {/* <TravelPlan /> */}
+          <CatFriends />
           <Trap />
         </Container>
       </CartContextProvider>
