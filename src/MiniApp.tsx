@@ -1,4 +1,6 @@
 import Container from "./components/Container";
+import App from "./components/Hooks/chat";
+import UnderstandingHooks from "./components/Hooks/UnderstandingHooks";
 import { MiniNavbar } from "./components/MiniNavbar";
 import CatFriends from "./components/MultiRef";
 import TravelPlan from "./components/NestedFlattening";
@@ -17,14 +19,16 @@ function MiniApp() {
       <CartContextProvider>
         <Container>
           <ThemeSwitcher />
-          <MiniNavbar />
+          {/* <UnderstandingHooks /> */}
+          <App />
+          {/* <MiniNavbar />
           <ProductList />
-          {/* <RenderContainer /> */}
-          {/* <TravelPlan /> */}
-          {/* <CatFriends /> */}
-          {/* <CatFriends2 /> */}
+          <RenderContainer />
+          <TravelPlan />
+          <CatFriends />
+          <CatFriends2 />
           <CatFriends3 />
-          <Trap />
+          <Trap /> */}
         </Container>
       </CartContextProvider>
     </ThemeProvider>
