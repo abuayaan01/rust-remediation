@@ -13,7 +13,7 @@ export default function ChatRoom({ roomId, flag }) {
     roomId,
     serverUrl,
     onRecieveMessage(msg) {
-      showNotification("New message: " + msg + chatDetails.mssg);
+      showNotification("New message: " + msg + chatDetails.mssg + flag);
     },
   });
 
